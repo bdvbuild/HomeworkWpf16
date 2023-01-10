@@ -1,0 +1,127 @@
+﻿<Window x:Class="Task1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Task1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="300" Width="1000">
+    <Window.Resources>
+        <PathGeometry x:Key="left">
+            <PathFigure StartPoint="420,90" IsClosed="True">
+                <ArcSegment Size="20,20" Point="420,89" IsLargeArc="True" SweepDirection="Clockwise"/>
+            </PathFigure>
+        </PathGeometry>
+        <PathGeometry x:Key="right">
+            <PathFigure StartPoint="555,110" IsClosed="True">
+                <ArcSegment Size="20,20" Point="554,110" IsLargeArc="True" SweepDirection="Counterclockwise"/>
+            </PathFigure>
+        </PathGeometry>
+
+    </Window.Resources>
+    <Canvas>
+
+
+        <Path Data="M30.602624,382.39193 C30.602624,382.39193 35.902627,319.13194 98.302627,316.73194 160.70263,314.33194 184.51697,388.59321 184.51697,388.59321 184.51697,388.59321 167.41707,408.19869 139.99608,407.00983 112.57509,405.82096 99.148425,381.97606 75.055734,378.85979 44.339065,374.88674 30.602624,382.39193 30.602624,382.39193 z" Fill="#FFF4F4F5" Height="92" Stroke="Black" Stretch="Fill" Width="156" Canvas.Left="322" Canvas.Top="60.115" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Path Data="M30.602624,382.39193 C30.602624,382.39193 35.902627,319.13194 98.302627,316.73194 160.70263,314.33194 184.51697,388.59321 184.51697,388.59321 184.51697,388.59321 167.41707,408.19869 139.99608,407.00983 112.57509,405.82096 99.148425,381.97606 75.055734,378.85979 44.339065,374.88674 30.602624,382.39193 30.602624,382.39193 z" 
+              Fill="#FFF4F4F5" 
+              Height="92" 
+              Stroke="Black" 
+              Stretch="Fill" 
+              Width="156" Canvas.Left="658" Canvas.Top="59.775" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+
+        <Ellipse 
+                HorizontalAlignment="Center" 
+                Height="24" 
+                Grid.Row="2" 
+                Stroke="Black" 
+                VerticalAlignment="Top" 
+                Width="24" 
+                Canvas.Left="414" 
+                Canvas.Top="73.775">
+            <Ellipse.Fill>
+                <RadialGradientBrush GradientOrigin="0.342,0.325">
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="#FF4A69E0" Offset="0"/>
+                </RadialGradientBrush>
+            </Ellipse.Fill>
+            <Ellipse.Triggers>
+                <EventTrigger RoutedEvent="Window.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimationUsingPath
+                                PathGeometry="{StaticResource left}"
+                                Storyboard.TargetProperty="(Canvas.Top)"
+                                Source="Y"
+                                Duration="0:0:2"
+                                RepeatBehavior="Forever"/>
+                            <DoubleAnimationUsingPath
+                                PathGeometry="{StaticResource left}"
+                                Storyboard.TargetProperty="(Canvas.Left)"
+                                Source="X"
+                                Duration="0:0:2"
+                                RepeatBehavior="Forever"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Ellipse.Triggers>
+        </Ellipse>
+
+        <Ellipse 
+            Height="24" 
+            Stroke="Black" 
+            Width="24" 
+            Canvas.Left="538" 
+            Canvas.Top="73.775" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Ellipse.Fill>
+                <RadialGradientBrush GradientOrigin="0.342,0.325">
+                    <GradientStop Color="Black" Offset="1"/>
+                    <GradientStop Color="#FF4A69E0" Offset="0"/>
+                </RadialGradientBrush>
+            </Ellipse.Fill>
+            <Ellipse.Triggers>
+                <EventTrigger RoutedEvent="Window.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimationUsingPath
+                                PathGeometry="{StaticResource right}"
+                                Storyboard.TargetProperty="(Canvas.Top)"
+                                Source="Y"
+                                Duration="0:0:2"
+                                RepeatBehavior="Forever"/>
+                            <DoubleAnimationUsingPath
+                                PathGeometry="{StaticResource right}"
+                                Storyboard.TargetProperty="(Canvas.Left)"
+                                Source="X"
+                                Duration="0:0:2"
+                                RepeatBehavior="Forever"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Ellipse.Triggers>
+        </Ellipse>
+
+        <!--<Path Data="{StaticResource left}" Stroke="Red" StrokeThickness="1"/>
+        <Path Data="{StaticResource right}" Stroke="Red" StrokeThickness="1"/>-->
+        
+        <Path Data="M430,31.067027 C430,31.067027 363.55405,30.567053 328.95946,51.107594 294.36486,71.648134 294.35146,71.732559 294.35146,71.732559" Fill="#FFF4F4F5" Height="42" Canvas.Left="294.365" Stroke="Black" Stretch="Fill" Canvas.Top="31.066" Width="106" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <Path Data="M430,31.067027 C430,31.067027 363.55405,30.567053 328.95946,51.107594 294.36486,71.648134 294.35146,71.732559 294.35146,71.732559" Fill="#FFF4F4F5" Height="42" Canvas.Left="574.998" Stroke="Black" Stretch="Fill" Canvas.Top="31.066" Width="109" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
+        </Path>
+        <Path Data="M440.81081,205.12108 C440.81081,205.12108 465.1755,188.40494 479.22955,187.32386 493.28361,186.24278 539.76756,234.35532 539.76756,234.35532 z" Fill="#FFF4F4F5" Height="49" Canvas.Left="440.811" Stroke="Black" Stretch="Fill" Canvas.Top="187.306" Width="99" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+    </Canvas>
+</Window>
